@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+    "id": "GoTodoApiAppDemo",
+    "namespace": "microsoft.com",
+    "gateway": "2015-01-14",
+    "version": "1.0.0",
+    "title": "Go Todo Api App Demo",
+    "summary": "Build demo for showing a Go Api App",
+    "author": "Wade Wegner"
+}

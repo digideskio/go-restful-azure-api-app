@@ -1,0 +1,80 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Go Todo Api App Demo",
+        "description": "Build demo for showing a Go Api App",
+        "version": "1.0.0"
+    },
+    "host": "azurewebsites.net",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/v1",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/todos": {
+            "get": {
+                "summary": "Todo Index",
+                "description": "Get a list of todo items\n",
+                "tags": [
+                    "Todos"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of todos",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Todo"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Todo": {
+            "properties": {
+                "Id": {
+                    "type": "number",
+                    "description": "Unique id for todo"
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "Name of the todo item"
+                },
+                "Completed": {
+                    "type": "boolean",
+                    "description": "Is the todo item complete?."
+                },
+                "Due": {
+                    "type": "string",
+                    "description": "Time the todo item is due."
+                }
+            }
+        },
+        "Error": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
