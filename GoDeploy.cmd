@@ -53,7 +53,14 @@ ECHO copying resources to WEBROOT_PATH
 CP %DEPLOYMENT_SOURCE%\Web.Config %WEBROOT_PATH%\Web.Config -f
 CP %DEPLOYMENT_SOURCE%\apiapp.json %WEBROOT_PATH%\apiapp.json
 
-MKDIR "%WEBROOT_PATH%\metadata"
+IF EXIST "%WEBROOT_PATH%\metadata" (
+    ECHO Removing "%WEBROOT_PATH%\metadata"
+    RMDIR /S /Q "%WEBROOT_PATH%\metadata"
+) else (
+    ECHO creating "%WEBROOT_PATH%\metadata"
+    MKDIR "%WEBROOT_PATH%\metadata"
+)
+
 CP %DEPLOYMENT_SOURCE%\metadata\apiDefinition.swagger.json %WEBROOT_PATH%\metadata\apiDefinition.swagger.json -f
 
 ECHO Resolving dependencies
