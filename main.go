@@ -15,5 +15,10 @@ func main() {
         port = os.Getenv("HTTP_PLATFORM_PORT")
     }
 
+	if os.Getenv("PORT") != "" {
+        port = os.Getenv("PORT")
+    }
+
+
 	log.Fatal(http.ListenAndServe(":" + port, router))
 }
