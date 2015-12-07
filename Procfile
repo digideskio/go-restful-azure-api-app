@@ -1,1 +1,1 @@
-web: go-powerapp
+web: go-restful-azure-api-app
