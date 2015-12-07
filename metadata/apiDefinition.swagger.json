@@ -5,7 +5,7 @@
         "description": "Build demo for showing a Go Api App",
         "version": "1.0.0"
     },
-    "host": "azurewebsites.net",
+    "host": "go-powerapp.herokuapp.com",
     "schemes": [
         "https"
     ],
