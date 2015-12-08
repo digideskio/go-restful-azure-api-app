@@ -1,15 +1,13 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Go Todo Api App Demo",
-        "description": "Build demo for showing a Go Api App",
+        "title": "Go Todo PowerApps Demo",
         "version": "1.0.0"
     },
     "host": "go-powerapp.herokuapp.com",
     "schemes": [
-        "https"
+        "http"
     ],
-    "basePath": "/v1",
     "produces": [
         "application/json"
     ],
@@ -21,6 +19,10 @@
                 "tags": [
                     "Todos"
                 ],
+                "operationId": "ToDo",
+                "produces": [
+                    "application/json"
+                ],
                 "responses": {
                     "200": {
                         "description": "An array of todos",
@@ -30,12 +32,6 @@
                                 "$ref": "#/definitions/Todo"
                             }
                         }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
                     }
                 }
             }
@@ -43,36 +39,23 @@
     },
     "definitions": {
         "Todo": {
+            "type": "object",
             "properties": {
-                "Id": {
+                "id": {
                     "type": "number",
                     "description": "Unique id for todo"
                 },
-                "Name": {
+                "name": {
                     "type": "string",
                     "description": "Name of the todo item"
                 },
-                "Completed": {
+                "completed": {
                     "type": "boolean",
                     "description": "Is the todo item complete?."
                 },
-                "Due": {
+                "due": {
                     "type": "string",
                     "description": "Time the todo item is due."
-                }
-            }
-        },
-        "Error": {
-            "properties": {
-                "code": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
-                    "type": "string"
-                },
-                "fields": {
-                    "type": "string"
                 }
             }
         }
